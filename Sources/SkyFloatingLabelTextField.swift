@@ -268,7 +268,7 @@ public class SkyFloatingLabelTextField: UITextField {
     }
     
     private func addEditingChangedObserver() {
-        self.addTarget(self, action: Selector("editingChanged"), forControlEvents: .EditingChanged)
+        self.addTarget(self, action: #selector(SkyFloatingLabelTextField.editingChanged), forControlEvents: .EditingChanged)
     }
     
     /**
@@ -539,9 +539,7 @@ public class SkyFloatingLabelTextField: UITextField {
     
     /// Invoked when the interface builder renders the control
     override public func prepareForInterfaceBuilder() {
-        if #available(iOS 8.0, *) {
-            super.prepareForInterfaceBuilder()
-        }
+        super.prepareForInterfaceBuilder()
         self.selected = true
         _renderingInInterfaceBuilder = true
         self.updateControl(false)
